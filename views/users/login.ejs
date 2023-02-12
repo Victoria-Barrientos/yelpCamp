@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/loginRegister.css">
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="card shadow d-flex justify-content-center align-items-center col-6 offset-3" id="login-card">
+        <img class="card-img-top" id="image-card"  alt="" src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+        <div class="card-body w-100">
+          <h5 class="card-title">Login</h5>
+          <form action="/login" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" id="username" name="username" autofocus required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="password" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-success float-end">Login</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+</div>
