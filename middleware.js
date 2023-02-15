@@ -1,7 +1,8 @@
 const expressError = require('./utilities/expressError');
 const Campground = require('./models/campground');
 const Review = require('./models/review');
-const {campgroundValSchema, reviewValSchema} = require('./valSchemas.js');
+const User = require('./models/user');
+const {campgroundValSchema, reviewValSchema, userValSchema} = require('./validationSchemas.js');
 
 module.exports.isLoggedIn = (req, res, next) => {
     if(!req.isAuthenticated()){
@@ -30,8 +31,18 @@ module.exports.validateCampground = (req, res, next) => {
     }
 };
 
-module.exports.validateReview = (req,res, next) => {
+module.exports.validateReview = (req, res, next) => {
     const {error} = reviewValSchema.validate(req.body);
+    if(error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new expressError(msg, 400)
+    } else {
+        next();
+    }
+};
+
+module.exports.validateUser = (req, res, next) => {
+    const { error } = userValSchema.validate(req.body);
     if(error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new expressError(msg, 400)
