@@ -3,12 +3,12 @@ const router = express.Router();
 const passport = require('passport');
 const catchAsync = require('../utilities/catchAsync');
 const User = require('../models/user');
-const { checkReturnTo } = require('../middleware');
+const { checkReturnTo, validateUser } = require('../middleware.js');
 const users = require('../controllers/users');
 
 router.get('/register', users.renderRegister);
 
-router.post('/register', catchAsync (users.register)); 
+router.post('/register', validateUser, catchAsync (users.register)); 
 
 router.get('/login', users.renderLogin);
 
