@@ -6,8 +6,8 @@ module.exports.renderRegister = (req, res) => {
 
 module.exports.register = async(req, res, next) => {
     try{
-        const {email, username, password} = req.body;
-        const user = new User ({email, username});
+        const { first_name, last_name, username, email, birth_date, password, repeat_password } = req.body.user;
+        const user = new User ({first_name, last_name, email, birth_date, username});
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
             if(err) return next(err);
@@ -25,7 +25,7 @@ module.exports.renderLogin = (req,res) => {
 };
 
 module.exports.login = (req, res) => {
-    req.flash('success', 'Welcome back');
+    req.flash('success', `Welcome back, ${req.body.user.username}`);
     const redirectUrl = res.locals.returnTo || '/campgrounds';
     res.redirect(redirectUrl);
 };
@@ -34,7 +34,7 @@ module.exports.logout = (req,res) => {
     req.logout(function(err) {
         if (err) { return next(err); }
     })
-    req.flash('success', 'See you next time');
+    req.flash('success', 'See you later, alligator!');
     res.redirect('/campgrounds');
 }
 
