@@ -1,0 +1,39 @@
+.img-thumbnail {
+    padding: none;
+    border: none;
+}
+
+.img-box {
+    display: inline-block;
+}
+
+.form-check-input {
+    position: relative;
+    right: -155px;
+    top: 5px;
+}
+
+/* .rmv-btn {
+    background-color: white;
+    color: rgb(215, 0, 0);
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid rgb(215, 0, 0);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: inline-block;
+    position: relative;
+    top: -70px;
+    left: -23px;
+
+
+}
+.rmv-btn:hover {
+    background-color: rgb(215, 0, 0);
+    color: white;
+} */
