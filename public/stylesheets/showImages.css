@@ -1,0 +1,12 @@
+.img-box {
+    height: 550px;
+    
+}
+
+img {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    object-fit: contain;
+}
