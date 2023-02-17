@@ -49,7 +49,7 @@ const campgroundSchema = new mongoose.Schema ({
 
 campgroundSchema.virtual('properties.popUpMarkup').get(function () {
     return `<strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
-    <p></p>`
+    <p>${this.location}</p>`
 });
 
 campgroundSchema.post('findOneAndDelete', async function(doc){

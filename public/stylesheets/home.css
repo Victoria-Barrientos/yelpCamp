@@ -23,10 +23,21 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
+    color:rgba(0, 0, 0, 0.5);
 }
 
 a:hover {
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.9);
+    
+}
+
+.text-link a {
+    text-decoration: none;
+    color: white;
+}
+
+.text-link a:hover {
     text-decoration: none;
     color: white;
     
