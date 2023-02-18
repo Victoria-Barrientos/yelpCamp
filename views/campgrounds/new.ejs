@@ -4,6 +4,7 @@
 <div class="row">
   <div class="col-6 offset-3 card shadow">
       <div class="card-body">
+        <%- include('../partials/flash')%>
         <h4 class="card-title text-center">New Campground</h4>
         <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
           <div class="mb-3">

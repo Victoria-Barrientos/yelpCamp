@@ -24,18 +24,23 @@ module.exports.checkReturnTo = (req, res, next) => {
 module.exports.validateCampground = (req, res, next) => {
     const {error} = campgroundValSchema.validate(req.body);
     if(error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new expressError(msg, 400)
+        const msg = error.details.map(el => el.message).join(',');
+        req.flash('error', `Invalid data, try again please. ERROR 400 - DETAILS [${msg}]`);
+        return res.redirect('/campgrounds/new')
+        // throw new expressError(msg, 400)
     } else {
         next();
     }
 };
 
 module.exports.validateReview = (req, res, next) => {
+    const { id } = req.params;
     const {error} = reviewValSchema.validate(req.body);
     if(error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new expressError(msg, 400)
+        const msg = error.details.map(el => el.message).join(',');
+        req.flash('error', `Invalid data, try again please. ${msg}` );
+        // throw new expressError(msg, 400)
+        return res.redirect(`/campgrounds/${id}`)
     } else {
         next();
     }
@@ -44,8 +49,10 @@ module.exports.validateReview = (req, res, next) => {
 module.exports.validateUser = (req, res, next) => {
     const { error } = userValSchema.validate(req.body);
     if(error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new expressError(msg, 400)
+        const msg = error.details.map(el => el.message).join(',');
+        req.flash('error', `Invalid data, try again please. ${msg}` );
+        // throw new expressError(msg, 400)
+        return res.redirect(`/register`);
     } else {
         next();
     }
