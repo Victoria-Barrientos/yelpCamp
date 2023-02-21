@@ -47,6 +47,8 @@ const campgroundSchema = new mongoose.Schema ({
     ]
 }, opts);
 
+campgroundSchema.index({ title: "text", location: "text" });
+
 campgroundSchema.virtual('properties.popUpMarkup').get(function () {
     return `<strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
     <p>${this.location}</p>`

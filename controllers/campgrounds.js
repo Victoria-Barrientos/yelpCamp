@@ -4,9 +4,24 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geoCoder = mbxGeocoding ({ accessToken: mapBoxToken });
 const { cloudinary } = require('../cloudinary');
 
-module.exports.home = (req, res) => {
+module.exports.home = async (req, res) => {
     res.render('campgrounds/home.ejs')
-}
+};
+
+module.exports.findCamp = async (req, res) => {
+    const { key }  = req.query;
+    let campgrounds = await Campground.find(
+        {
+            "$or": [
+                {title: { $regex: key, $options: 'i' } },
+                {location: { $regex: key, $options: 'i' } },
+                
+            ]
+        }
+        );
+    res.render('campgrounds/search.ejs', {campgrounds})
+};
+
 
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({})

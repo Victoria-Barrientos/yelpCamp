@@ -8,7 +8,7 @@
         <h4 class="card-title text-center">New Campground</h4>
         <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
           <div class="mb-3">
-            <label class="form-label" for="title">Title</label>
+            <label class="form-label" for="title" autofocus>Title</label>
             <input class="form-control" type="text" id="title" name="campground[title]" required>
             <div class="valid-feedback">
               Looks good!
@@ -44,7 +44,7 @@
         <input type="file" class="form-control" id="image" name="image" multiple>
       </div>
       <div class="mb-3">
-          <button class="btn btn-success">Add Campground</button>
+          <button class="btn btn-success float-end">Add Campground</button>
       </div>
       </form>
     </div>

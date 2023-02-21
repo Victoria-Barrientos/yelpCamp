@@ -12,6 +12,8 @@ const catchAsync = require('../utilities/catchAsync');
 
 router.get('/home', catchAsync (campgrounds.home));
 
+router.get('/search', catchAsync (campgrounds.findCamp));
+
 router.get('/', catchAsync (campgrounds.index));
 
 router.get('/new', isLoggedIn, campgrounds.renderNewForm);
