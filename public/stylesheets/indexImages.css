@@ -1,5 +1,5 @@
 .img-index-box {
-    height: 450px;
+    height: 300px;
     padding: 0px;
     
 }
@@ -8,7 +8,7 @@
     padding: 0px;
     justify-content: center;
     align-items: center;
-    height:90%;
+    height:100%;
     overflow: hidden;
-    object-fit: contain;
+    object-fit: cover;
 }

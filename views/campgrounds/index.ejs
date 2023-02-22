@@ -14,18 +14,22 @@
                 <% } %>
             </div>
             <div class="card col-7">
-                <div class="card-body text-link">
-                    <h3 class="card-title"><%= campground.title %> </h3>
-                    <h5 class=" card-text text-muted"><%= campground.location%></h5>
-                    <p class="card-text"><%= campground.description %></p>
-                    <a class="btn btn-primary float-end" href="/campgrounds/<%=campground._id%>">View <%=campground.title%></a>
+                <div class="d-flex flex-row card-body text-link">
+                    <div>
+                        <h3 class="card-title"><%= campground.title %> </h3>
+                        <h5 class=" card-text text-muted"><%= campground.location%></h5>
+                        <p class="card-text"><%= campground.description %></p>
+                    </div>
+                    <div>
+                        <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">Explore</a>
+                    </div>                   
                 </div>
             </div>
-        
       </div>
   </div>
-    <% }%>
 
+
+<% }%>
 </main>
 
     <script>
