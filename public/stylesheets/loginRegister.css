@@ -1,9 +1,8 @@
-.log-card {
-    padding-top: 12px;
+.login {
+    background-color: #f9f9f9;
+}
 
-};
-
-
-img#image-card {
-    max-height: 500px !important;
+.login-card {
+    padding: 12px;
+    box-shadow: 0.3em 0.3em 1em rgba(0,0,0,0.3);
 };
