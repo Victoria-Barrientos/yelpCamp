@@ -19,7 +19,8 @@ const Joi = require('joi');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 
-const userRoutes = require('./routes/users')
+const yelpcampRoutes = require('./routes/yelpcamp');
+const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
@@ -153,6 +154,7 @@ app.listen (3000, () => {
 });
 
 app.use('/', userRoutes);
+app.use('/', yelpcampRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 

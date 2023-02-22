@@ -1,0 +1,38 @@
+footer {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+.social-icons {
+    margin-bottom: 20px;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff;
+  }
+  
+  .link a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .link a:hover {
+    color: #007bff;
+  }
+  
+  .legal {
+    margin-top: 20px;
+  }
+  
+  .legal p {
+    margin-bottom: 5px;
+  }
+  
