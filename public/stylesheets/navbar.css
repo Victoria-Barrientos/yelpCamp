@@ -1,18 +1,12 @@
 
 body {
     height: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
-    url("https://images.unsplash.com/photo-1475359524104-d101d02a042b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1294&q=80");
-    background-size:cover;
-   
+    background-color: #f9f9f9;
 }
 
 .image-nav {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("https://images.unsplash.com/photo-1475359524104-d101d02a042b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1294&q=80");
-    background-size: cover;
+    background: linear-gradient(120deg, #3D8F5B, #FF97AF);
     text-shadow: 0 0.05rem 0.1rem rgba(122, 122, 122, 0.5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
    
 }
 
@@ -43,18 +37,18 @@ a:hover {
 
 .nav-link {
     margin-left: 0.5rem;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .nav-link-drop {
-    text-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
-    font-weight: 400;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(255,151,175, 0.8);
+    font-weight: 500;
     
 }
 
 .nav-link-drop:hover {
     text-shadow: 0rem;
-    background-color:rgb(0,0,0);
+    background-color: #FF97AF;
     
 }
 
