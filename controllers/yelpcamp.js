@@ -17,3 +17,7 @@ module.exports.findCamp = async (req, res) => {
         );
     res.render('layout/search.ejs', {campgrounds})
 };
+
+module.exports.privacyPolicy = async (req, res) => {
+    res.render('layout/privacypolicy.ejs')
+};

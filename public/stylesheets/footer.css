@@ -16,16 +16,7 @@ footer {
   }
   
   .social-icons a:hover {
-    color: #007bff;
-  }
-  
-  .link a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .link a:hover {
-    color: #007bff;
+    color: #000000;
   }
   
   .legal {
@@ -35,4 +26,13 @@ footer {
   .legal p {
     margin-bottom: 5px;
   }
+
+  .legal a {
+    color: #fff;
+    text-decoration: none;
+  }
   
+  .legal a:hover {
+    color: #000000;
+    text-decoration: none;
+  }
