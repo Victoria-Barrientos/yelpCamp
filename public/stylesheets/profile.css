@@ -52,7 +52,7 @@
 .my-campgrounds div {
 	max-height: 271vh;
 	border-top: 2px solid black ;
-	margin: 10px;
+	margin: 2vw 5vw;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;

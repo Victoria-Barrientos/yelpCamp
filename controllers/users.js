@@ -55,11 +55,21 @@ module.exports.renderSettingsForm = async (req, res) => {
   
 module.exports.updateProfile = async (req, res) => {
     const { id } = req.params;
-    console.log(req.user);
-    const user = await User.findByIdAndUpdate(id, {...req.user}, {runValidators: true, new: true});
+    const user = await User.findByIdAndUpdate(id, {...req.body.user}, 
+        {runValidators: true, new: true});
+    if (req.file) {
+            const { path, filename } = req.file;
+            user.profile_picture = { url: path, filename };
+        };
     await user.save();
     console.log(user);
     req.flash('success', 'Successfully updated user!');
     res.redirect (`/users/${user._id}`);
   };
-  
+
+module.exports.destroy = async (req, res) => {
+    const { id } = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted user');
+    res.redirect('/home');
+}

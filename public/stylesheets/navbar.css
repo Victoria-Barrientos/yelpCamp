@@ -62,4 +62,16 @@ a:hover {
     margin: 0% 20% 0%;
 }
 
-
+.user-profile {
+    display: inline;
+    gap: 15px;
+  }
+  
+  .user-profile img {
+    display: inline;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  

@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('connect-flash');
 const expressError = require('./utilities/expressError');
+const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -19,10 +20,7 @@ const Joi = require('joi');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 
-const yelpcampRoutes = require('./routes/yelpcamp');
-const userRoutes = require('./routes/users');
-const campgroundRoutes = require('./routes/campgrounds');
-const reviewRoutes = require('./routes/reviews');
+
 
 const MongoDBStore = require('connect-mongo');
 
@@ -48,6 +46,7 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize());
@@ -152,6 +151,11 @@ app.use((req, res, next)  => {
 app.listen (3000, () => {
     console.log('Serving at port 3000')
 });
+
+const yelpcampRoutes = require('./routes/yelpcamp');
+const userRoutes = require('./routes/users');
+const campgroundRoutes = require('./routes/campgrounds');
+const reviewRoutes = require('./routes/reviews');
 
 app.use('/', userRoutes);
 app.use('/', yelpcampRoutes);
