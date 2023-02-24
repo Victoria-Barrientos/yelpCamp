@@ -1,18 +1,17 @@
 footer {
     color: #fff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
   }
   
 .social-icons {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   
   .social-icons a {
     display: inline-block;
     margin-right: 10px;
     color: #fff;
-    font-size: 20px;
   }
   
   .social-icons a:hover {
@@ -20,10 +19,13 @@ footer {
   }
   
   .legal {
-    margin-top: 20px;
+    margin-top: 5px;
   }
   
   .legal p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin-bottom: 5px;
   }
 

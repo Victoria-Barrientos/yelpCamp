@@ -33,7 +33,13 @@
 	margin-top: 20px;
 	padding: 10px 20px;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: #3D8F5B;
+	color: #fff;
+	text-decoration: none;
+}
+
+.profile a:hover {
+	background-color: #FF97AF;
 	color: #fff;
 	text-decoration: none;
 }
@@ -46,9 +52,39 @@
 .my-campgrounds div {
 	max-height: 271vh;
 	border-top: 2px solid black ;
-	margin: 25px;
+	margin: 10px;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	flex-wrap: wrap;
+}
+
+.my-campgrounds a {
+	color: black;
+}
+
+.my-campgrounds a:hover {
+	color: white;
+	background-color: #3D8F5B;
+	text-decoration: none;
+}
+
+.add-camp {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin-top: 30px;
+
+}
+
+.title {
+	margin-right: 15px;
+}
+
+.add {
+	color: black;
+}
+
+.add:hover {
+	color:#3D8F5B;
 }
