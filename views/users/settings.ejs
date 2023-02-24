@@ -1,0 +1,55 @@
+<% layout('layout/boilerplate')%>
+
+<main class="container my-3">
+  <section class="d-flex justify-content-center login">
+      <div class="card col-5 login-card">
+        <div class="card-body">
+        <h5 class="card-title">User Settings</h5>
+          <form action="/users/<%=user._id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="validated-form" novalidate>
+            <div class="mb-3">
+                <label for="profile_picture">Profile Image</label>
+                <input type="file" id="profile_picture" name="user[profile_picture]">
+            </div>
+            <div class="mb-3">
+                  <label class="form-label">First and Last name</label>
+                  <div class="input-group">
+                    <input type="text"  id="first_name" name="user[first_name]"  value="<%=user.first_name%>" aria-label="First name" class="form-control" autofocus required>
+                    <input type="text" id="last_name" name="user[last_name]" value="<%=user.last_name%>" aria-label="Last name" class="form-control" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                      Please fill in the blank
+                    </div>
+                  </div>
+                  
+              </div>
+              <div class="mb-3">
+                  <label class="form-label" for="username">Username</label>
+                  <input class="form-control" type="text" id="username" name="user[username]" value="<%=user.username%>" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Please fill in the blank
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" type="email" id="email" name="user[email]" value="<%=user.email%>" disabled>
+                <div class="mb-3">
+                  <label class="form-label" for="date">Date of birth</label>
+                  <input class="form-control" type="date" id="birth_date" name="user[birth_date]" value="<%=user.birth_date%>" disabled>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="country">Place of birth</label>
+                  <input class="form-control" type="text" id="country" name="user[country]">
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-success float-end">Save changes</button>
+              </div>
+          </form>
+      </div>
+    </div>
+</section>
+</main>

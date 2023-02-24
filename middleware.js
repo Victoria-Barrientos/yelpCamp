@@ -13,6 +13,15 @@ module.exports.isLoggedIn = (req, res, next) => {
     next();
 };
 
+module.exports.isLoggedOut = (req, res, next) => {
+    if(req.isAuthenticated()){
+        req.session.returnTo = req.originalUrl
+        req.flash('error', 'You cannot register another user while logged in.');
+        return res.redirect('/campgrounds');
+    }
+    next();
+};
+
 module.exports.checkReturnTo = (req, res, next) => {
     if (req.session.returnTo) {
       res.locals.returnTo = req.session.returnTo;
@@ -56,6 +65,16 @@ module.exports.validateUser = (req, res, next) => {
     } else {
         next();
     }
+};
+
+module.exports.isCurrentUser = async (req, res, next) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if(!req.user || !user._id.equals(req.user._id)) {
+    req.flash('error', 'You do not have permission to do that!');
+    return res.redirect(`/users/${id}`);
+    }
+    next();
 };
 
 module.exports.isAuthor = async (req, res, next) => {

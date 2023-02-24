@@ -1,0 +1,25 @@
+<% layout('layout/boilerplate')%>
+<%- include('../partials/flash')%>
+	<div class="profile-container">
+		<section class="profile">
+			<img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=417&q=80" alt="User Profile Image">
+			<p><%=user.username%></p>
+            <h2><%=user.first_name%> <%=user.last_name%></h2>
+			<p><%=user.country%></p>
+			<p><%=user.email%></p>
+            <% if(currentUser && currentUser.equals(user)) { %>
+			<a href="/users/<%=user._id%>/settings">Edit Profile</a>
+            <% } %>
+        </section>
+	</div>
+    <section class="my-campgrounds">
+        <h5>My campgrounds</h5>
+        <div>
+            <% for (let campground of campgrounds){%>
+                <% if(campground.author.equals(user._id)) { %>
+            <a class="list-group-item flex-fill" href="/campgrounds/<%=campground._id%>"><%= campground.title %></a>
+        
+                <% } %>
+            <% } %>
+        </div>
+    </section>

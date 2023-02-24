@@ -16,7 +16,6 @@ router.get('/new', isLoggedIn, campgrounds.renderNewForm);
 
 router.post('/', isLoggedIn, upload.array('image'), validateCampground, catchAsync (campgrounds.createCampground));
 
-
 router.get('/:id/edit', isLoggedIn, isAuthor, catchAsync (campgrounds.renderEditForm));
 
 router.get('/:id', catchAsync (campgrounds.showCampground));

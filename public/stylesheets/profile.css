@@ -1,0 +1,54 @@
+.profile-container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.profile {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.profile img {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	object-position: center;
+	margin-bottom: 20px;
+}
+
+.profile h2 {
+	font-size: 36px;
+	margin-bottom: 10px;
+}
+
+.profile p {
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.profile a {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #007bff;
+	color: #fff;
+	text-decoration: none;
+}
+
+.my-campgrounds {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.my-campgrounds div {
+	max-height: 271vh;
+	border-top: 2px solid black ;
+	margin: 25px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}

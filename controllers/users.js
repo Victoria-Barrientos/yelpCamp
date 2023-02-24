@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Campground = require('../models/campground');
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register')
@@ -7,6 +8,7 @@ module.exports.renderRegister = (req, res) => {
 module.exports.register = async(req, res, next) => {
     try{
         const { first_name, last_name, username, email, birth_date, password, repeat_password } = req.body.user;
+        console.log(req.body.user);
         const user = new User ({first_name, last_name, email, birth_date, username});
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
@@ -35,6 +37,29 @@ module.exports.logout = (req,res) => {
         if (err) { return next(err); }
     })
     req.flash('success', 'See you later, alligator!');
-    res.redirect('/campgrounds');
-}
+    res.redirect('/home');
+};
 
+module.exports.renderProfile = async (req, res) => {
+    const { id } = req.params;
+    const campgrounds = await Campground.find({});
+    const user = await User.findById(id);
+    res.render('users/profile.ejs', {user, campgrounds});
+  };
+
+module.exports.renderSettingsForm = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    res.render('users/settings.ejs', {user});
+  };
+  
+module.exports.updateProfile = async (req, res) => {
+    const { id } = req.params;
+    console.log(req.user);
+    const user = await User.findByIdAndUpdate(id, {...req.user}, {runValidators: true, new: true});
+    await user.save();
+    console.log(user);
+    req.flash('success', 'Successfully updated user!');
+    res.redirect (`/users/${user._id}`);
+  };
+  

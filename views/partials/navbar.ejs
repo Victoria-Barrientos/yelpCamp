@@ -27,8 +27,8 @@
                             Logged in as <p class="current-user dropdown-toggle"><%=currentUser.username%></p>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item nav-link-drop" href="">Profile</a></li>
-                          <li><a class="dropdown-item nav-link-drop" href="">Settings</a></li>
+                          <li><a class="dropdown-item nav-link-drop" href="/users/<%=currentUser._id%>">Profile</a></li>
+                          <li><a class="dropdown-item nav-link-drop" href="/users/<%=currentUser._id%>/settings">Settings</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item nav-link-drop" href="/logout">Logout</a></li>
                         </ul>
@@ -38,33 +38,3 @@
         </div>
     </nav>
 </div>
-
-
-<!-- 
-
-<div class="position-sticky sticky-top image-nav">
-    <div class="d-flex justify-content-center mt-2 text-link">
-        <a href="/campgrounds/home"><h2 class="logo">YelpCamp</h2></a>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" >
-                <div class="navbar-nav text-link">
-                    <a class="nav-link" href="/campgrounds">Campgrounds</a>
-                    <a class="nav-link" href="/campgrounds/new">New Campground</a>
-                    
-            </div>
-            </div>
-            <div class="navbar-nav text-link">
-                <% if(!currentUser) {%>
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
-                <%} else { %>
-                    <a class="nav-link float-end" href=""> Logged in as <p class="current-user"><%=currentUser.username%></p> </a>
-                    <a class="nav-link" href="">Settings</a>
-                    <a class="nav-link float-end" href="/logout">Logout</a>
-                <%} %>
-            </div>
-        </div>
-    </nav>
-</div> -->

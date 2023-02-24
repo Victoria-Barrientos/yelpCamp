@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
+const PictureSchema = new Schema ({
+    url: String,
+    filename: String,
+});
+
 const UserSchema = new Schema ({
     first_name: {
         type: String,
@@ -19,9 +24,14 @@ const UserSchema = new Schema ({
     },
     birth_date: {
         type: Date,
-    }
+    },
+    country: {
+        type: String,
+    },
+    profile_picture: PictureSchema,
 });
 
 UserSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
+module.exports = User
