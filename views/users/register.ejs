@@ -62,6 +62,7 @@
                   <div class="invalid-feedback">
                     Please fill in the blank
                   </div>
+                </div>
                   <div class="mb-3">
                     <label class="form-label" for="repeat_password"> Repeat password</label>
                     <input class="form-control" type="password" id="repeat_password" name="user[repeat_password]" required>
@@ -71,6 +72,16 @@
                     <div class="invalid-feedback">
                       Please fill in the blank
                     </div>
+                </div>
+                <div class="mb-3">              
+                  <input type="checkbox" name="user[terms_and_conditions]" value="true" required>
+                  <label class="terms-and-conditions">I have read and agree to the <a href="/terms-and-conditions">Terms & Conditions</a></label>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    You must agree to the terms and conditions
+                  </div>
                 </div>
                 <div class="mb-3">
                   <button class="btn btn-success float-end">Register</button>

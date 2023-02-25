@@ -50,5 +50,9 @@ module.exports.userValSchema = Joi.object({
         birth_date: Joi.date().required().greater('1-1-1923').less('12-31-2015'),
         password: Joi.string().required().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
         repeat_password: Joi.ref('password'),
+        terms_and_conditions: Joi.boolean().valid(true).required().messages({
+            'any.only': 'You must agree to the terms and conditions',
+            'any.required': 'You must agree to the terms and conditions',
+    })
     }).required()
 })

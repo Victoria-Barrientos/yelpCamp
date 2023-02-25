@@ -21,3 +21,7 @@ module.exports.findCamp = async (req, res) => {
 module.exports.privacyPolicy = async (req, res) => {
     res.render('layout/privacypolicy.ejs')
 };
+
+module.exports.termsAndConditions = async (req, res) => {
+    res.render('layout/terms-and-conditions.ejs')
+};

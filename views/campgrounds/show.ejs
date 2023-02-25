@@ -32,7 +32,16 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item text-muted"><%=campground.location%></li>
-            <li class="list-group-item text-muted">Submitted by <strong><%=campground.author.username%></strong></li>
+            <li class="list-group-item text-muted">
+              <div class="user-profile">
+              Submitted by <strong><a href="/users/<%=campground.author._id%>"><%=campground.author.username%></a></strong>
+              <% if(campground.author.profile_picture) {%>
+              <img src="<%=campground.author.profile_picture.url%>" alt="User Profile Image">
+                            <%} else { %>
+                            <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=417&q=80" alt="User Profile Image">
+                            <%} %>
+              </div>
+            </li>
             <li class="list-group-item text-muted">$<%= campground.price%>/night</li>
         </ul>
         <% if(currentUser && campground.author.equals(currentUser._id)) {%>

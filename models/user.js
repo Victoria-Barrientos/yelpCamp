@@ -28,7 +28,11 @@ const UserSchema = new Schema ({
     country: {
         type: String,
     },
+    terms_and_conditions: {
+        type: Boolean,
+    },
     profile_picture: PictureSchema,
+    
 });
 
 UserSchema.plugin(passportLocalMongoose);

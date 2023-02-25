@@ -13,7 +13,7 @@
           <section class="d-flex justify-content-center login">
               <div class="card col-5 login-card">
                 <div class="card-body">
-                <h5 class="card-title">User Settings</h5>
+                <h5 class="card-title">Personal Information</h5>
                   <form action="/users/<%=user._id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="validated-form" novalidate>
                     <div class="mb-3">
                         <label for="profile_picture">Profile Image</label>
@@ -68,11 +68,20 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-        Change password
+        Change your password
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+      <div class="accordion-body">
+        <% if(currentUser && currentUser.equals(user)) { %>
+          <div class="card-text my-3 mx-3 text-link">
+              <form class="d-inline" action="/users/<%=user._id%>/settings?_method=PUT" method="POST">
+                <p>Are you sure you want to change the password to your account?</p>
+                <button class="btn btn-warning">Save changes</button>
+              </form>
+          </div>
+          <%}%>
+      </div>
     </div>
   </div>
   <div class="accordion-item">
@@ -86,7 +95,8 @@
         <% if(currentUser && currentUser.equals(user)) { %>
           <div class="card-text my-3 mx-3 text-link">
               <form class="d-inline" action="/users/<%=user._id%>/settings?_method=DELETE" method="POST">
-                  <button class="btn btn-danger">Delete</button>
+                <p>Are you sure you want to delete your account? This action cannot be undone</p>
+                <button class="btn btn-danger">Delete</button>
               </form>
           </div>
           <%}%>
