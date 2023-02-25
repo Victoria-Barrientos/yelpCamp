@@ -2,8 +2,8 @@
 <%- include('../partials/flash')%>
 	<div class="profile-container">
 		<section class="profile">
-			<% if(currentUser.profile_picture) {%>
-                <img src="<%=currentUser.profile_picture.url%>" alt="User Profile Image">
+			<% if(user.profile_picture) {%>
+                <img src="<%=user.profile_picture.url%>" alt="User Profile Image">
                 <%} else { %>
                 <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=417&q=80" alt="User Profile Image">
                 <%} %>

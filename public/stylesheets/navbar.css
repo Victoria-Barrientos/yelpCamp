@@ -6,7 +6,7 @@ body {
 
 .image-nav {
     background: linear-gradient(120deg, #3D8F5B, #FF97AF);
-    text-shadow: 0 0.05rem 0.1rem rgba(122, 122, 122, 0.5);
+    text-shadow: 0 0.05rem 0.1rem #7a7a7a80;
    
 }
 
@@ -35,21 +35,32 @@ a:hover {
     color:  white;  
 }
 
-.nav-link {
+.nav-link  {
     margin-left: 0.5rem;
-    font-weight: 500;
+    font-weight: 400;
+    color:   rgba(255,255,255) !important;
+}
+
+.nav-link:active {
+    color:   rgba(255,255,255) !important;
+    font-weight: 500 !important;
+}
+
+.nav-link:hover {
+    margin-left: 0.5rem;
+    font-weight: 500 !important;
 }
 
 .nav-link-drop {
-    text-shadow: 0.1rem 0.1rem 0.1rem rgba(255,151,175, 0.8);
-    font-weight: 500;
+    color:  rgb(255,255,255) !important;
+    font-weight: 400;
     
 }
 
 .nav-link-drop:hover {
-    text-shadow: 0rem;
-    background-color: #FF97AF;
-    
+    color:  rgb(255,255,255) !important;
+    background-color:#ffa3b9 ;
+    font-weight: 500 !important;
 }
 
 .current-user {
@@ -58,7 +69,14 @@ a:hover {
     display: inline;
 }
 
+.current-user:hover {
+    font-style: italic; 
+    color: white;
+    display: inline;
+}
+
 .dropdown-menu {
+    background-color:#ffa3b9 ;
     margin: 0% 20% 0%;
 }
 
