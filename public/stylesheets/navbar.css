@@ -35,6 +35,13 @@ a:hover {
     color:  white;  
 }
 
+.btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
 .nav-link  {
     margin-left: 0.5rem;
     font-weight: 400;

@@ -14,7 +14,7 @@ ImageSchema.virtual('thumbnail').get(function () {
 
 const opts = { toJSON: {virtuals: true} };
 
-const campgroundSchema = new mongoose.Schema ({
+const campgroundSchema = new Schema ({
     title: {
         type: String},
     location: {
@@ -31,10 +31,16 @@ const campgroundSchema = new mongoose.Schema ({
         },
     },
     price: { 
-        type: Number},
+        type: Number,
+        default: 0,
+    },
     description: {
         type: String},
     images: [ImageSchema],
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -47,7 +53,7 @@ const campgroundSchema = new mongoose.Schema ({
     ]
 }, opts);
 
-campgroundSchema.index({ title: "text", location: "text" });
+campgroundSchema.index({ title: "text", location: "text", price: "number" });
 
 campgroundSchema.virtual('properties.popUpMarkup').get(function () {
     return `<strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>

@@ -1,6 +1,39 @@
 <%layout('layout/boilerplate')%>
 <main class="container my-4">
 
+    <div class="mb-3">
+        <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text btn btn-primary" id="basic-addon1">Search by</span>
+            <button class="input-group-text btn btn-outline-primary btn-icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-left" viewBox="1 1 16 16">
+                <path d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+            </svg></button>
+          </div>
+            <div class="collapse col-10 offset-1" id="collapseExample">
+                        <div class="card card-body">
+                            <form class="mx-2" action="/search" method="GET">
+                                <div class="mb-2 d-flex flex-row align-items-center justify-content-evenly">
+                                    <div class="d-flex mx-2">
+                                        <label class="form-label mx-2" for="title">Title</label>
+                                        <input class="form-control form-control-sm" type="text" id="title_key" name="title_key" autofocus>
+                                    </div>
+                                    <div class="d-flex mx-2">
+                                        <label class="form-label mx-2" for="location">Location</label>
+                                        <input class="form-control form-control-sm" type="text" id="location_key" name="location_key">
+                                    </div>
+                                    <div class="d-flex mx-2">
+                                        <label class="form-label mx-2" for="price">Price</label>
+                                        <input class="form-control form-control-sm" type="number" id="price_key" name="price_key">
+                                    </div>                               
+                                    <div class="">
+                                        <button class="btn btn-sm btn-success">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+            </div>
+    </div>
+
+<% if (campgrounds.length) {%>
 <% for (let campground of campgrounds){%>
     <div class="mb-3">
         <div class="d-flex flex-row">
@@ -14,6 +47,22 @@
                 </div>
             
           </div>
+      </div>
+<% }%>
+<% } else { %>
+    <div class="mb-3">
+        <div class="d-flex flex-row">
+                <div class="card col-8 offset-2">
+                    <div class="d-flex flex-column align-items-center justify-content-center mt-5 mb-3"><i class="bi bi-search">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg>
+                    </i>
+                    <h3 class="card-body card-title">No results found for your search</h3>
+                    <p>Try searching for a different campground</p>
+                    </div>  
+                    </div>
+                </div>
       </div>
 <% }%>
 </main>
