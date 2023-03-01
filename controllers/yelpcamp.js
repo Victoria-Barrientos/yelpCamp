@@ -6,8 +6,7 @@ module.exports.home = async (req, res) => {
 
 module.exports.findCamp = async (req, res) => {
     const {key, title_key, location_key, price_key }  = req.query;
-    console.log(price_key)
-    if ( key ) {
+    if (key) {
     let campgrounds = await Campground.find(
         {
             "$or": [
@@ -17,13 +16,23 @@ module.exports.findCamp = async (req, res) => {
         }
         );
     res.render('layout/search.ejs', {campgrounds})
+    } if (price_key) {
+        let campgrounds = await Campground.find(
+            {
+                "$and": [
+                    {title: { $regex: title_key, $options: 'i' } },
+                    {location: { $regex: location_key, $options: 'i' } },
+                    {price: price_key},
+                ]
+            }
+            );
+        res.render('layout/search.ejs', {campgrounds})
     } else {
         let campgrounds = await Campground.find(
             {
                 "$and": [
                     {title: { $regex: title_key, $options: 'i' } },
                     {location: { $regex: location_key, $options: 'i' } },
-                    {price: price_key },
                 ]
             }
             );
